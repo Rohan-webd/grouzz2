@@ -1,5 +1,5 @@
 const express = require("express");
-const port = 8000;
+const port = process.env.PORT || 3000;
 const path=require('path');
 const mysql = require("mysql");
 
@@ -8,7 +8,7 @@ const app = express();
 app.set('view engine','ejs');
 app.set("views", path.join(__dirname,'/views'));
 app.use(express.static(path.join(__dirname,'/public')));
-app.use(express.urlencoded()) ;
+app.use(express.urlencoded(extended:false)) ;
 //create connection
 const db = mysql.createConnection({
     host:"database-2.cfnn5oh2gixp.us-east-2.rds.amazonaws.com",
